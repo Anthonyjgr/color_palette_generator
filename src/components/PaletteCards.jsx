@@ -50,9 +50,9 @@ const PaletteCards = ({ colorsScale }) => {
         console.error("Error copying color:", err);
       });
   };
-
+  
   return (
-    <div className="flex flex-wrap gap-2 items-center justify-center">
+    <div className="flex flex-row flex-wrap items-center justify-between w-full">
       <ToastContainer />
       {palette?.map((color, index) => (
         <div
