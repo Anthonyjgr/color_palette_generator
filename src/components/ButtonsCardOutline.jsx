@@ -53,7 +53,7 @@ const ButtonsCardOutline = ({ colors }) => {
   };
 
   return (
-    <div className="flex flex-col w-[304px] h-auto py-4 border border-gray-300 rounded-2xl items-center justify-center gap-4 ">
+    <div className="flex flex-col w-[304px] min-w-[304px] h-auto py-4 border border-gray-300 rounded-2xl items-center justify-center gap-4 ">
       <div className="flex w-full items-start ml-10">
         <p className="top-2 left-8 text-xl text-gray-700">Outline Buttons</p>
       </div>

@@ -5,6 +5,8 @@ import MeetingCard from "../../components/MeetingCard";
 import ButtonsCard from "../../components/ButtonsCardFlat";
 import ButtonsCardOutline from "../../components/ButtonsCardOutline";
 import ButtonsCardGradient from "../../components/ButtonsCardGradient";
+import ReviewCard from "../../components/ReviewCard";
+import ReviewCardColor from "../../components/ReviewCardColor";
 
 const Home = () => {
   const [baseColor, setBaseColor] = useState("#2b00ff"); // Color base inicial
@@ -66,7 +68,7 @@ const Home = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center gap-10">
+    <div className="flex flex-col items-center justify-center gap-10 w-full">
       <h1
         className="font-semibold text-5xl"
         style={{
@@ -111,12 +113,12 @@ const Home = () => {
         />
       </div>
       <PaletteCards colorsScale={colorScale} />
-      <div className="flex flex-row gap-6 items-center justify-between w-full">
+      <div className="flex flex-row items-center justify-between w-full flex-wrap">
         <MeetingCard colors={colors_palette} />
-        <MeetingCard colors={colors_palette} />
-        <MeetingCard colors={colors_palette} />
+        <ReviewCard colors={colors_palette}/>
+        <ReviewCardColor colors={colors_palette}/>
       </div>
-      <div className="flex flex-row gap-6 items-center justify-between w-full">
+      <div className="flex flex-row items-center justify-between w-full flex-wrap">
         <ButtonsCard colors={colors_palette} />
         <ButtonsCardOutline colors={colors_palette} />
         <ButtonsCardGradient colors={colors_palette} />
