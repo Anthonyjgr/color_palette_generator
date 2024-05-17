@@ -149,12 +149,12 @@ const Home = () => {
         ""
       )}
       <PaletteCards colorsScale={colorScale} />
-      <div className="flex flex-row justify-center items-center md:justify-between w-full flex-wrap gap-10">
+      <div className="flex flex-row justify-center gap-10 flex-wrap items-center md:justify-between md:gap-0 w-full">
         <MeetingCard colors={colors_palette} />
         <ReviewCard colors={colors_palette} />
         <ReviewCardColor colors={colors_palette} />
       </div>
-      <div className="flex flex-row items-center  justify-center md:justify-between w-full flex-wrap gap-10">
+      <div className="flex flex-row justify-center gap-10 flex-wrap items-center md:justify-between md:gap-0 w-full">
         <ButtonsCard colors={colors_palette} />
         <ButtonsCardOutline colors={colors_palette} />
         <ButtonsCardGradient colors={colors_palette} />
