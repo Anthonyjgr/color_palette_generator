@@ -11,6 +11,22 @@ const copyIcon = (
 
 const PaletteCards = ({ colorsScale }) => {
   const [palette, setPalette] = useState([]);
+  const [ismobile, setIsMobile] = useState([])
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      if (window.innerWidth <= 768) {
+        setIsMobile(true);
+      } else {
+        setIsMobile(false);
+      }
+    };
+    window.addEventListener('resize', checkScreenSize);
+    checkScreenSize();
+    return () => {
+      window.removeEventListener('resize', checkScreenSize);
+    };
+  }, []);
 
   useEffect(() => {
     const color_plus_hexaname = (hex) => {
@@ -52,17 +68,19 @@ const PaletteCards = ({ colorsScale }) => {
   };
   
   return (
-    <div className="flex flex-row flex-wrap items-center justify-between w-full">
+    <div className="flex flex-col md:flex-row flex-wrap items-center justify-between w-full"
+    style={{gap: ismobile ? "5px" : ""}}
+    >
       <ToastContainer />
       {palette?.map((color, index) => (
         <div
           onClick={() => copyToClipboard(color?.hex)}
           key={index}
-          className="transform hover:scale-110 transition-transform duration-300 ease-in-out"
+          className="transform hover:scale-95  md:hover:scale-110 transition-transform duration-300 ease-in-out"
           style={{
             backgroundColor: color?.hex,
-            width: "80px",
-            height: "110px",
+            width: ismobile ? "100%" : "80px",
+            height: ismobile ? "50px" :"110px",
             borderRadius: "10px",
             display: "flex",
             alignItems: "center",
@@ -73,7 +91,7 @@ const PaletteCards = ({ colorsScale }) => {
             color: Chroma(color?.hex).luminance() > 0.5 ? "black" : "white", // Color de texto según la luminancia del color de fondo
           }}
         >
-          <p className="text-sm mt-8">{color?.tone}</p>
+          <p className="text-sm mt-0 md:mt-8">{color?.tone}</p>
           <p className="text-sm">{color?.hex.toUpperCase().slice(1)}</p>
           <button>
             <svg
