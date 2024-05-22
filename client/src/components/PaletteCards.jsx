@@ -75,7 +75,7 @@ const PaletteCards = ({ colorsScale }) => {
       {palette?.map((color, index) => (
         <div
           onClick={() => copyToClipboard(color?.hex)}
-          key={index}
+          key={index+"a"}
           className="transform hover:scale-95  md:hover:scale-110 transition-transform duration-300 ease-in-out"
           style={{
             backgroundColor: color?.hex,
@@ -88,15 +88,16 @@ const PaletteCards = ({ colorsScale }) => {
             flexDirection: "column",
             position: "relative",
             cursor: "pointer",
-            color: Chroma(color?.hex).luminance() > 0.5 ? "black" : "white", // Color de texto según la luminancia del color de fondo
+            color: Chroma(color?.hex).luminance() > 0.5 ? "black" : "white",
           }}
         >
-          <p className="text-sm mt-0 md:mt-8">{color?.tone}</p>
-          <p className="text-sm">{color?.hex.toUpperCase().slice(1)}</p>
-          <button>
+          <p className="text-sm mt-0 md:mt-8" key={index+"b"}>{color?.tone}</p>
+          <p className="text-sm" key={index+"c"}>{color?.hex.toUpperCase().slice(1)}</p>
+          <button key={index+"d"}>
             <svg
               className="w-4 h-4 absolute top-2 right-2"
               style={{ fill: Chroma(color?.hex).luminance() > 0.5 ? "black" : "white" }}
+              key={index+"e"}
             >
               {copyIcon}
             </svg>
