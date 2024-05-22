@@ -55,8 +55,7 @@ const Dashboard = ({ user }) => {
 
       // Update local state to reflect changes
       setPalettes(updatedPalettes);
-
-      console.log("Paleta de colores eliminada exitosamente.");
+      // console.log("Paleta de colores eliminada exitosamente.");
     } catch (error) {
       console.error("Error al eliminar la paleta de colores:", error);
     }
@@ -76,7 +75,7 @@ const Dashboard = ({ user }) => {
                 <Spline scene="https://prod.spline.design/7Gg0DdcH1-rE-Spp/scene.splinecode" />
               </div>
               <h1
-                className="text-2xl max-w-[500px] flex font-bold "
+                className="text-2xl max-w-[500px] flex font-bold xs:px-4"
                 style={{
                   backgroundImage: `linear-gradient(to right, rgba(0,24,255,1) 0%, rgba(255,0,0,1) 100%)`,
                   WebkitBackgroundClip: "text",

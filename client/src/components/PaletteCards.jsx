@@ -68,7 +68,7 @@ const PaletteCards = ({ colorsScale }) => {
   };
   
   return (
-    <div className="flex flex-col md:flex-row flex-wrap items-center justify-between w-full"
+    <div className="flex flex-col md:flex-row flex-wrap items-center justify-between w-full xs:px-2"
     style={{gap: ismobile ? "5px" : ""}}
     >
       <ToastContainer />

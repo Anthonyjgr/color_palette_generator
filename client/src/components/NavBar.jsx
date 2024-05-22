@@ -13,7 +13,7 @@ const NavBar = ({ user }) => {
     navigate("/login");
   };
   return (
-    <div className="flex flex-row items-center justify-center w-full h-16 rounded-full mb-10 gap-4 max-w-[1000px]">
+    <div className="flex flex-row items-center justify-center w-full h-16 rounded-full mb-10 gap-4 max-w-[1000px] xs:px-4">
       <div className="flex flex-row items-center justify-between w-full">
         <Link to="/">
           <h1 className="text-gray-500 hover:text-black transition-all duration-300 ease-in-out">

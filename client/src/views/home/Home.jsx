@@ -128,7 +128,7 @@ const Home = ({ user }) => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center gap-10 w-screen relative max-w-[1000px]">
+    <div className="flex flex-col items-center xs:px-2 justify-center gap-10 w-screen relative max-w-[1000px] mb-[100px]">
       <h1
         className="font-semibold text-5xl text-gray-500"
         // style={{
@@ -174,7 +174,7 @@ const Home = ({ user }) => {
         />
       </div>
       {/* save and export buttons container*/}
-      <div className="flex flex-row gap-4 w-full items-center justify-end">
+      <div className="flex flex-row gap-4 w-full items-center justify-end px-4">
         <button
           onClick={handleExportBtn}
           className="text-gray-500 hover:text-black transition-all duration-300 ease-in-out"
