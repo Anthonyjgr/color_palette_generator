@@ -15,7 +15,7 @@ const Home = ({ user }) => {
   const [colorScale, setColorScale] = useState([]);
   const [exportScale, setExportScale] = useState(false);
   const [saveButton, setSaveButton] = useState(false);
-  const [inputColorName, setInputColorName] = useState("")
+  const [inputColorName, setInputColorName] = useState("");
 
   const ref = useRef(baseColor);
 
@@ -95,9 +95,9 @@ const Home = ({ user }) => {
     }
   };
 
-  const InputColorChange =(e) =>{
-    setInputColorName(e.target.value)
-  }
+  const InputColorChange = (e) => {
+    setInputColorName(e.target.value);
+  };
 
   const colors_palette = {
     primary_50: colorScale[0],
@@ -139,7 +139,7 @@ const Home = ({ user }) => {
       >
         Tailwind CSS Color Generator
       </h1>
-      
+
       {/* <h3>Generador de Escala de Colores</h3> */}
       {/* input container */}
       <div className="flex flex-row border-[1px] border-gray-300 rounded-full p-3 px-4 w-72 items-center">
@@ -175,31 +175,40 @@ const Home = ({ user }) => {
       </div>
       {/* save and export buttons container*/}
       <div className="flex flex-row gap-4 w-full items-center justify-end">
-      <button onClick={handleExportBtn} className="text-gray-500 hover:text-black transition-all duration-300 ease-in-out">Export to tailwind</button>
-      {exportScale ? (
-        <div className="absolute flex items-center justify-center w-screen h-screen bg-white bg-opacity-10 backdrop-blur-[4px] z-10">
-          <div className="relative">
-            <ExportButton colors={export_palette} colorName={"Primary"} />
-            <button
-              onClick={handleExportBtn}
-              className="absolute w-4 h-4 top-3 p-4 right-3 rounded-full flex items-center justify-center text-gray-500 hover:text-red-500"
-            >
-              X
-            </button>
-          </div>
-        </div>
-      ) : (
-        ""
-      )}
-      {/* save color */}
-      <div className="relative">
         <button
-          onClick={handleSaveButton}
+          onClick={handleExportBtn}
           className="text-gray-500 hover:text-black transition-all duration-300 ease-in-out"
         >
-          Save Palette
+          Export to tailwind
         </button>
-      </div>
+        {exportScale ? (
+          <div
+            className="absolute flex items-center justify-center max-w-[500px] max-h-[500px] 
+        top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-1/2 h-1/2 rounded-3xl
+        bg-white bg-opacity-10 backdrop-blur-[4px] z-10"
+          >
+            <div className="relative ">
+              <ExportButton colors={export_palette} colorName={"Primary"} />
+              <button
+                onClick={handleExportBtn}
+                className="absolute w-4 h-4 top-3 p-4 right-3 rounded-full flex items-center justify-center text-gray-500 hover:text-red-500"
+              >
+                X
+              </button>
+            </div>
+          </div>
+        ) : (
+          ""
+        )}
+        {/* save color */}
+        <div className="relative">
+          <button
+            onClick={handleSaveButton}
+            className="text-gray-500 hover:text-black transition-all duration-300 ease-in-out"
+          >
+            Save Palette
+          </button>
+        </div>
         {saveButton ? (
           <div
             className="bg-gray-100 shadow-lg absolute flex flex-col border-[1px]
@@ -212,8 +221,11 @@ const Home = ({ user }) => {
               className="w-full border-[1px] border-gray-300 rounded-xl p-2"
             />
             <div className="flex flex-row w-full items-center justify-between">
-              <button className=" w-5/12 rounded-lg py-2 bg-green-600 text-white hover:bg-green-800 transition-all duration-300 ease-in-out"
-              onClick={() => saveColorPallet(user._id, colorScale && colorScale , inputColorName)}
+              <button
+                className=" w-5/12 rounded-lg py-2 bg-green-600 text-white hover:bg-green-800 transition-all duration-300 ease-in-out"
+                onClick={() =>
+                  saveColorPallet(user._id, colorScale && colorScale, inputColorName)
+                }
               >
                 Save
               </button>
@@ -231,7 +243,7 @@ const Home = ({ user }) => {
       </div>
       {/* palellete color section */}
       <PaletteCards colorsScale={colorScale} />
-        {/* UI components */}
+      {/* UI components */}
       <div className="flex flex-row justify-center gap-10 flex-wrap items-center md:justify-between md:gap-0 w-full">
         <MeetingCard colors={colors_palette} />
         <ReviewCard colors={colors_palette} />
