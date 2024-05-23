@@ -1,10 +1,13 @@
 import express from 'express';
 import passport from "passport"
+import dotenv from "dotenv"
 import { googleAuth, googleAuthCallback, githubAuth, githubAuthCallback } from '../controllers/authController.js';
+
+dotenv.config()
 
 const router = express.Router();
 
-const redirectUrl =  'http://localhost:5173'
+const redirectUrl = process.env.SUCESS_REDIRECT
 
 router.get('/google', googleAuth);
 router.get('/google/callback', googleAuthCallback);

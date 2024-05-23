@@ -3,19 +3,16 @@ import google from "/google.svg";
 import github from "/github.svg";
 import Spline from '@splinetool/react-spline';
 import robot from "/robot.png"
+import {baseUrl} from "../../helpers/userData.js"
 
 const Login = () => {
 
   const google_login = () => {
-    window.open("http://localhost:3000/auth/google", "_self");
+    window.open(`${baseUrl}/api/auth/google`, "_self");
   };
 
   const github_login = () => {
-    window.open("http://localhost:3000/auth/github", "_self");
-  };
-
-  const logout = () => {
-    window.open("http://localhost:3000/auth/logout", "_self");
+    window.open(`${baseUrl}/auth/github`, "_self");
   };
 
   const google_icon = (

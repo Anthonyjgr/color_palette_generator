@@ -1,4 +1,9 @@
 import passport from 'passport';
+import dotenv from "dotenv"
+
+dotenv.config()
+
+const redirectUrl = process.env.SUCESS_REDIRECT
 
 
 export const googleAuth = passport.authenticate('google', {
@@ -8,7 +13,7 @@ export const googleAuth = passport.authenticate('google', {
 
 export const googleAuthCallback = passport.authenticate('google', {
   failureRedirect: '/login',
-  successRedirect: 'http://localhost:5173/',
+  successRedirect: redirectUrl,
 });
 
 export const githubAuth = passport.authenticate('github', {
@@ -17,5 +22,5 @@ export const githubAuth = passport.authenticate('github', {
 
 export const githubAuthCallback = passport.authenticate('github', {
   failureRedirect: '/login',
-  successRedirect: 'http://localhost:5173/',
+  successRedirect: redirectUrl,
 });

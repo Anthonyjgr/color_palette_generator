@@ -9,6 +9,7 @@ import ReviewCard from "../../components/ReviewCard";
 import ReviewCardColor from "../../components/ReviewCardColor";
 import ExportButton from "../../components/ExportButton";
 import axios from "axios";
+import { baseUrl } from "../../helpers/userData";
 
 const Home = ({ user }) => {
   const [baseColor, setBaseColor] = useState("#2b00ff");
@@ -76,14 +77,14 @@ const Home = ({ user }) => {
         scale: newPalette,
       };
       const getUpdatedUserInfo = await axios.get(
-        `http://localhost:3000/api/user/data/${userId}`
+        `${baseUrl}/api/user/data/${userId}`
       );
       const userData = getUpdatedUserInfo.data;
 
       const updatedPalettes = user && [...userData.colorPalettes, newColor];
 
       // Envía una solicitud PUT para actualizar las paletas de colores del usuario
-      await axios.put(`http://localhost:3000/api/user/update/${userId}`, {
+      await axios.put(`${baseUrl}/api/user/update/${userId}`, {
         colorPalettes: updatedPalettes,
       });
 

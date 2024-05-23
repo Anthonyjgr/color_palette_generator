@@ -1,8 +1,10 @@
 import axios from "axios"
 
+export const baseUrl="https://api-color-sage.vercel.app"
+// const baseUrl="http://localhost:3000"
 export const getUser = async () => {
   try {
-    const response = await axios.get('http://localhost:3000/auth/login/success', {
+    const response = await axios.get(`${baseUrl}/auth/login/success`, {
       withCredentials: true,
       headers: {
         Accept: 'application/json',

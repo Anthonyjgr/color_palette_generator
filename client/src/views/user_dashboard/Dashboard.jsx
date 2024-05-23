@@ -5,6 +5,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import Spline from "@splinetool/react-spline";
 import { Link } from "react-router-dom";
+import { baseUrl } from "../../helpers/userData";
 
 const Dashboard = ({ user }) => {
   const [palettes, setPalettes] = useState([]);
@@ -14,7 +15,7 @@ const Dashboard = ({ user }) => {
     const fetchUserPalettes = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/api/user/data/${user._id}`
+          `${baseUrl}/api/user/data/${user._id}`
         );
         setPalettes(response.data.colorPalettes);
       } catch (error) {
@@ -49,7 +50,7 @@ const Dashboard = ({ user }) => {
       const updatedPalettes = palettes.filter((palette) => palette._id !== colorID);
 
       // Update user's palettes in the database
-      await axios.put(`http://localhost:3000/api/user/update/${userId}`, {
+      await axios.put(`${baseUrl}/api/user/update/${userId}`, {
         colorPalettes: updatedPalettes,
       });
 
