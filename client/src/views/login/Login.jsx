@@ -12,7 +12,7 @@ const Login = () => {
   };
 
   const github_login = () => {
-    window.open(`${baseUrl}/api/auth/github`, "_self");
+    window.open(`${baseUrl}/auth/github`, "_self");
   };
 
   const google_icon = (
