@@ -42,7 +42,7 @@ const Login = () => {
           onClick={google_login}
         >
           <svg className="w-8 h-8 fill-current">{google_icon}</svg>
-          Sign up with github
+          Sign up with Google
         </button>
 
         <button
