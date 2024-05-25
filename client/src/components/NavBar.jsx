@@ -1,6 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import LoginButton from "./LoginButton";
+import LogoutButton from "./LogoutButton";
+
 
 const NavBar = ({ user }) => {
   const logout = () => {
@@ -26,6 +29,8 @@ const NavBar = ({ user }) => {
               My Palettes
             </h1>
           </Link>
+          <LoginButton />
+          <LogoutButton />
           {user ? (
             <button
               className=" px-6 text-gray-500 hover:text-black transition-all duration-300 ease-in-out"

@@ -10,6 +10,7 @@ import ReviewCardColor from "../../components/ReviewCardColor";
 import ExportButton from "../../components/ExportButton";
 import axios from "axios";
 import { baseUrl } from "../../helpers/userData";
+import Profile from "../../components/Profile";
 
 const Home = ({ user }) => {
   const [baseColor, setBaseColor] = useState("#2b00ff");
@@ -129,7 +130,9 @@ const Home = ({ user }) => {
   };
 
   return (
+    
     <div className="flex flex-col items-center xs:px-2 justify-center gap-10 w-screen relative max-w-[1000px] mb-[100px]">
+      <Profile/>
       <h1
         className="font-semibold text-5xl text-gray-500"
         // style={{
