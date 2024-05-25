@@ -8,7 +8,7 @@ import {baseUrl} from "../../helpers/userData.js"
 const Login = () => {
 
   const google_login = () => {
-    window.open(`${baseUrl}/api/auth/google`, "_self");
+    window.open(`${baseUrl}/auth/google`, "_self");
   };
 
   const github_login = () => {

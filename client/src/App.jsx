@@ -16,6 +16,7 @@ function App() {
       try {
         const userData = await getUser();
         setUser(userData);
+        console.log(userData)
       } catch (error) {
         console.log(error);
       }

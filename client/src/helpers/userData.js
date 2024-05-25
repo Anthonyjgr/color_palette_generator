@@ -1,7 +1,7 @@
 import axios from "axios"
 
 export const baseUrl="https://api-color-sage.vercel.app"
-// const baseUrl="http://localhost:3000"
+// export const baseUrl="http://localhost:3000"
 export const getUser = async () => {
   try {
     const response = await axios.get(`${baseUrl}/auth/login/success`, {
@@ -11,7 +11,7 @@ export const getUser = async () => {
         'Content-Type': 'application/json',
       },
     });
-
+    console.log(response)
     if (response.status === 200) {
       return response.data.user
     } else {
