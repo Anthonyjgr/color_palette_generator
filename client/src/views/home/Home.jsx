@@ -19,6 +19,7 @@ const Home = ({ user }) => {
   const [exportScale, setExportScale] = useState(false);
   const [saveButton, setSaveButton] = useState(false);
   const [inputColorName, setInputColorName] = useState("");
+  const { isAuthenticated } = useAuth0();
 
   const ref = useRef(baseColor);
 
@@ -206,12 +207,15 @@ const Home = ({ user }) => {
         )}
         {/* save color */}
         <div className="relative">
+          {
+            isAuthenticated ? 
           <button
             onClick={handleSaveButton}
             className="text-gray-500 hover:text-black transition-all duration-300 ease-in-out"
           >
             Save Palette
-          </button>
+          </button> : ""
+          }
         </div>
         {saveButton ? (
           <div

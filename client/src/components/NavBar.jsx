@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import LoginButton from "./LoginButton";
 import LogoutButton from "./LogoutButton";
+import { useAuth0 } from "@auth0/auth0-react";
 
 
 const NavBar = ({ user }) => {
@@ -11,6 +12,7 @@ const NavBar = ({ user }) => {
   };
 
   const navigate = useNavigate();
+  const {isAuthenticated, isLoading} = useAuth0();
 
   const handleButtonClick = () => {
     navigate("/login");
@@ -24,27 +26,20 @@ const NavBar = ({ user }) => {
           </h1>
         </Link>
         <div className="flex flex-row items-center justify-center">
+          {
+            isAuthenticated ?
           <Link to="/my-dashboard">
             <h1 className="text-gray-500 hover:text-black transition-all duration-300 ease-in-out">
               My Palettes
             </h1>
-          </Link>
-          <LoginButton />
-          <LogoutButton />
+          </Link> : ""
+          }
+          
+          
           {user ? (
-            <button
-              className=" px-6 text-gray-500 hover:text-black transition-all duration-300 ease-in-out"
-              onClick={logout}
-            >
-              Log Out
-            </button>
+              <LogoutButton />
           ) : (
-            <button
-              className="px-6 text-gray-500 hover:text-black transition-all duration-300 ease-in-out"
-              onClick={handleButtonClick}
-            >
-              Log In
-            </button>
+            <LoginButton />
           )}
 
           {user?.photo && (
