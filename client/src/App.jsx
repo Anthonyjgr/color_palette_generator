@@ -7,6 +7,7 @@ import { getUser } from "./helpers/userData.js";
 import NavBar from "./components/NavBar.jsx";
 import Dashboard from "./views/user_dashboard/Dashboard.jsx";
 import { useAuth0 } from "@auth0/auth0-react";
+import FailureLogin from "./components/FailureLogin.jsx";
 // import axios from "axios"
 
 
@@ -53,6 +54,7 @@ function App() {
       {!isLoginRoute && <NavBar user={user} />}
       <Routes>
         <Route path="/" element={<Home user={user} />} />
+        <Route path="/failure" element={<FailureLogin/>} />
         <Route path="/login" element={<Login />} />
         <Route
           path="/my-dashboard"
