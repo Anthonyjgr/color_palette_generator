@@ -31,6 +31,7 @@ const Login = () => {
   return (
     <div className="flex flex-col items-center justify-center w-full h-full ">
         {/* <button className="absolute top-[300px] w-[165px] p-3 rounded-l bg-blue  bg-white">Get In Touch</button> */}
+        <h1>last deplyment</h1>
       
       <div className="flex items-center justify-center ">
         <Spline scene="https://prod.spline.design/7Gg0DdcH1-rE-Spp/scene.splinecode"/>

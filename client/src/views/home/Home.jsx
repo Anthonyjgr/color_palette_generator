@@ -132,7 +132,7 @@ const Home = ({ user }) => {
   return (
     
     <div className="flex flex-col items-center xs:px-2 justify-center gap-10 w-screen relative max-w-[1000px] mb-[100px]">
-      <Profile/>
+      {/* <Profile/> */}
       <h1
         className="font-semibold text-5xl text-gray-500"
         // style={{

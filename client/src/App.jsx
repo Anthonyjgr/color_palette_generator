@@ -9,40 +9,43 @@ import Dashboard from "./views/user_dashboard/Dashboard.jsx";
 import { useAuth0 } from "@auth0/auth0-react";
 // import axios from "axios"
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const userData = await getUser();
-  //       // const response = await axios.get("https://api-color-sage.vercel.app/auth/login/success");
-  //       console.log(response.data);
-  //       setUser(userData);
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
-  //   fetchData();
-  // }, []);
+
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
+  const [user, setUser] = useState(null);
   const location = useLocation();
-  const { user, isAuthenticated, isLoading } = useAuth0();
+  // const { user, isAuthenticated, isLoading } = useAuth0();
 
-
-  useEffect(() => {
+    useEffect(() => {
     const fetchData = async () => {
       try {
-        if (!isLoading && isAuthenticated) {
-          setCurrentUser(currentUser);
-        }
+        const userData = await getUser();
+        // const response = await axios.get("https://api-color-sage.vercel.app/auth/login/success");
+        // console.log(response.data);
+        setUser(userData);
       } catch (error) {
         console.log(error);
       }
     };
     fetchData();
-  }, [isAuthenticated, user, isLoading]);
+  }, []);
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       if (!isLoading && isAuthenticated) {
+  //         setCurrentUser(currentUser);
+  //       }
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
+  //   fetchData();
+  // }, [isAuthenticated, user, isLoading]);
   
-  console.log(user);
+  // console.log(user);
+
   const isLoginRoute = location.pathname.startsWith("/login");
 
   return (
