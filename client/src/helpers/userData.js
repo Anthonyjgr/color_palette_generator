@@ -14,7 +14,6 @@ export const getUser = async () => {
         'Content-Type': 'application/json',
       },
     });
-    console.log(response.data? true : false)
     if (response.status === 200) {
       return response.data.user
     } else {

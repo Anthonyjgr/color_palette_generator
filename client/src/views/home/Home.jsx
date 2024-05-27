@@ -8,9 +8,10 @@ import ButtonsCardGradient from "../../components/ButtonsCardGradient";
 import ReviewCard from "../../components/ReviewCard";
 import ReviewCardColor from "../../components/ReviewCardColor";
 import ExportButton from "../../components/ExportButton";
-import axios from "axios";
+import axios from "../../config/axios";
 import { baseUrl } from "../../helpers/userData";
 import Profile from "../../components/Profile";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Home = ({ user }) => {
   const [baseColor, setBaseColor] = useState("#2b00ff");
@@ -77,21 +78,20 @@ const Home = ({ user }) => {
         name: colorName ? colorName : newPalette[5],
         scale: newPalette,
       };
-      const getUpdatedUserInfo = await axios.get(
-        `${baseUrl}/api/user/data/${userId}`
-      );
-      const userData = getUpdatedUserInfo.data;
-
-      const updatedPalettes = user && [...userData.colorPalettes, newColor];
-
+  
+      // Obtén la información del usuario actualizada
+      const getUpdatedUserInfo = await axios.get(`/api/user/data/${userId}`);
+      const userData = getUpdatedUserInfo.data; // Accede a los datos de la respuesta
+  
+      const updatedPalettes = userData.colorPalettes ? [...userData.colorPalettes, newColor] : [newColor];
+  
       // Envía una solicitud PUT para actualizar las paletas de colores del usuario
-      await axios.put(`${baseUrl}/api/user/update/${userId}`, {
+      await axios.put(`/api/user/update/${userId}`, {
         colorPalettes: updatedPalettes,
       });
-
+  
       setSaveButton(false);
-
-      // console.log("Paleta de colores guardada exitosamente.");
+  
     } catch (error) {
       console.error("Error al guardar la paleta de colores:", error);
     }
@@ -228,7 +228,7 @@ const Home = ({ user }) => {
               <button
                 className=" w-5/12 rounded-lg py-2 bg-green-600 text-white hover:bg-green-800 transition-all duration-300 ease-in-out"
                 onClick={() =>
-                  saveColorPallet(user._id, colorScale && colorScale, inputColorName)
+                  saveColorPallet(user?._id, colorScale && colorScale, inputColorName)
                 }
               >
                 Save
